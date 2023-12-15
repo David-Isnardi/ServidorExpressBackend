@@ -1,0 +1,22 @@
+{
+  "name": "proyecto",
+  
+  "version": "1.0.0",
+  "main": "ProductManager.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon src/app.js",
+    "start": "node server.js"
+  },
+  "author": "David Isnardi",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "description": "En este proyecto se crea un ProductManager, en el cual tiene una lista de productos, los cuales según las funciones puede mostrar todos los productos, eliminar, o tirar un error si tienen los codigos iguales, entre otras funciones, a este ProductManager se le aplica lo que serian las promesas, luego se creó un servidor express, en el cual se tuvo que crear app.js, la cual tiene toda la funcionalidad del servidor, dicha app obtiene la información de los productos de ProductManager, los cuales se muestran en el localhost:8080, y según el limite que quiero mostrar de productos o su id, me lo mostrará en pantalla, es decir si al localhost le pongo (localhost:8080/products) me mostrará todos los productos, si coloco (localhost:8080/products/?limit=numerolimite) al poner un numero limite por ejemplo 2, solamente me mostrará 2 productos, y si pongo (localhost:8080/products/idproducto) solamente me traerá el producto por su id, por ejemplo el producto id 1.",
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}

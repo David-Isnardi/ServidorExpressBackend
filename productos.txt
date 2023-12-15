@@ -1,0 +1,1 @@
+[{"id":1,"title":"Pan","description":"Bimbo","price":100,"thumbnail":"sinimagen","code":"abc123","stock":10},{"id":2,"title":"Leche","description":"Conaprole","price":300,"thumbnail":"sinimagen","code":"abc456","stock":15}]
