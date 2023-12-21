@@ -19,7 +19,7 @@ export default class ProductManager{
         return id;
     };
     
-    ValidateField(title, description, price, thumbnail, code, stock) {
+    validateField(title, description, price, thumbnail, code, stock) {
         if (!title || !description || !price || !thumbnail || !code || !stock) {
         console.error("Por favor, completa los campos.");
         return false;
@@ -30,7 +30,7 @@ export default class ProductManager{
 
     };
 
-    DuplicateCode(code){
+    duplicateCode(code){
         if (this.products.find((product) => product.code === code) !== undefined) {
         console.error("Este producto ya existe")
         return false;
@@ -42,7 +42,7 @@ export default class ProductManager{
 
     addProduct = async (product) => {
     const {title, description, price, thumbnail, code, stock} = product 
-    this.ValidateField(title, description, price, thumbnail, code, stock) && this.DuplicateCode(code)
+    this.validateField(title, description, price, thumbnail, code, stock) && this.duplicateCode(code)
         let newProduct = {
             id: this.idGenerator(),
             title,

@@ -1,27 +1,25 @@
-import express, { response } from "express"
+import express from "express"
 import ProductManager from "./components/ProductManager.js"
 
 const app = express();
 app.use(express.urlencoded({extended : true}));
 
 const productos = new ProductManager("./productos.txt");
-const readProducts = productos.readProducts();
 
-app.get("/products", async (request, response) => {
-    let limit = parseInt(request.query.limit);
-    if(!limit) return response.send(await readProducts)
+app.get("/products", async (req, res) => {
+    const limit = parseInt(req.query.limit);
+    if(!limit) return res.send(await productos.readProducts())
 
-    let allProducts = await readProducts
-    let productLimit = allProducts.slice(0, limit)
-    response.send(productLimit)
+    const allProducts = await productos.readProducts()
+    const productLimit = allProducts.slice(0, limit)
+    res.send(productLimit)
 });
 
-app.get("/products/:id", async (request, response) => {
-    let pid = parseInt(request.params.id);
-    let allProducts = await readProducts;
-    let productById = allProducts.find(product => product.id === pid)
-    response.send(productById)
-});
+app.get("/products/:id", async (req, res) => {
+    const productId = parseInt(req.params.id);
+    const product = await productos.getProductsById(productId);
+    res.send(product)
+  });
 
 const port = 8080;
 const server = app.listen(port, ()=>{
